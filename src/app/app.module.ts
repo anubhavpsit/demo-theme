@@ -15,6 +15,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
+import { PagingService } from './service/paging.service';
 
 import {
   MenuComponent,
@@ -62,7 +63,7 @@ export function createTranslateLoader(http: HttpClient) {
     SidebarModule.forRoot(),
     AgmCoreModule.forRoot({apiKey: 'YOURAPIKEY'})
   ],
-  providers: [],
+  providers: [PagingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

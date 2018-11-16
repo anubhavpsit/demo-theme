@@ -12,6 +12,7 @@ import { TablePagingComponent } from './table-paging/table-paging.component';
 import { TablePinningComponent } from './table-pinning/table-pinning.component';
 import { TableSelectionComponent } from './table-selection/table-selection.component';
 import { TableSortingComponent } from './table-sorting/table-sorting.component';
+import { PagingwithserviceComponent } from './pagingwithservice/pagingwithservice.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { TableSortingComponent } from './table-sorting/table-sorting.component';
     TablePagingComponent,
     TablePinningComponent,
     TableSelectionComponent,
-    TableSortingComponent
+    TableSortingComponent,
+    PagingwithserviceComponent
   ]
 })
 

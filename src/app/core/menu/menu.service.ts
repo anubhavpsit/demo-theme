@@ -242,6 +242,10 @@ const MENUITEMS = [
         name: 'PAGING'
       },
       {
+        state: 'pagingwithservicecomponent',
+        name: 'PagingWithServiceComponent'
+      },
+      {
         state: 'pinning',
         name: 'PINNING'
       },

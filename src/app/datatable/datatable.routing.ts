@@ -7,6 +7,7 @@ import { TablePagingComponent } from './table-paging/table-paging.component';
 import { TablePinningComponent } from './table-pinning/table-pinning.component';
 import { TableSelectionComponent } from './table-selection/table-selection.component';
 import { TableSortingComponent } from './table-sorting/table-sorting.component';
+import { PagingwithserviceComponent } from './pagingwithservice/pagingwithservice.component';
 
 export const DatatableRoutes: Routes = [
   {
@@ -52,6 +53,13 @@ export const DatatableRoutes: Routes = [
       component: TableSortingComponent,
       data: {
         heading: 'Sorting'
+      }
+    },
+    {
+      path: 'pagingwithservicecomponent',
+      component: PagingwithserviceComponent,
+      data: {
+        heading: 'PagingWithServiceComponent'
       }
     }]
   }
