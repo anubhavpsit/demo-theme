@@ -217,6 +217,10 @@ const MENUITEMS = [
         state: 'responsive',
         name: 'RESPONSIVE'
       },
+      {
+        state: 'Tablepagination',
+        name: 'TablePagination'
+      },
     ]
   },
   {

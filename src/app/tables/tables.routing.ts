@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { BasicComponent } from './basic/basic.component';
 import { ResponsiveComponent } from './responsive/responsive.component';
+import { TablepaginationComponent } from './tablepagination/tablepagination.component';
 
 export const TablesRoutes: Routes = [
   {
@@ -17,6 +18,13 @@ export const TablesRoutes: Routes = [
       component: ResponsiveComponent,
       data: {
         heading: 'Responsive'
+      }
+    },
+    {
+      path: 'Tablepagination',
+      component: TablepaginationComponent,
+      data: {
+        heading: 'TablePagination'
       }
     }]
   }
