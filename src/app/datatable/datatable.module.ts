@@ -13,12 +13,16 @@ import { TablePinningComponent } from './table-pinning/table-pinning.component';
 import { TableSelectionComponent } from './table-selection/table-selection.component';
 import { TableSortingComponent } from './table-sorting/table-sorting.component';
 import { PagingwithserviceComponent } from './pagingwithservice/pagingwithservice.component';
+import { PaginationtestingComponent } from './paginationtesting/paginationtesting.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(DatatableRoutes),
-    NgxDatatableModule
+    NgxDatatableModule,
+    NgbModule
   ],
   declarations: [
     DataTableComponent,
@@ -28,7 +32,8 @@ import { PagingwithserviceComponent } from './pagingwithservice/pagingwithservic
     TablePinningComponent,
     TableSelectionComponent,
     TableSortingComponent,
-    PagingwithserviceComponent
+    PagingwithserviceComponent,
+    PaginationtestingComponent
   ]
 })
 
