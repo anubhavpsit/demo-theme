@@ -8,7 +8,7 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 })
 export class PaginationtestingComponent implements OnInit {
 
-  //page=4;
+  page=5;
   //collectionSize;
   //@ViewChild(PaginationtestComponent) paginationtest:PaginationtestComponent;
   constructor() { }
