@@ -20,7 +20,12 @@ export class VerifyComponent implements OnInit {
 
   ngOnInit() {
     console.dir(this.token);
+
     // hit verify token api service
   }
 
+  setConfimationPageMessage(val)
+  {
+    this.is_success = val;
+  }
 }
