@@ -34,6 +34,12 @@ const MENUITEMS = [
     icon: 'basic-paperplane'
   },
   {
+    state: 'stores',
+    name: 'Stores',
+    type: 'link',
+    icon: 'basic-paperplane'
+  },
+  {
     state: 'components',
     name: 'COMPONENTS',
     type: 'sub',
