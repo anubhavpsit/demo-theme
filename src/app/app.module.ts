@@ -15,6 +15,9 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
+
+
+import { JarwisService } from './service/jarwis/jarwis.service';
 import { PagingService } from './service/paging.service';
 
 import {
@@ -63,7 +66,7 @@ export function createTranslateLoader(http: HttpClient) {
     SidebarModule.forRoot(),
     AgmCoreModule.forRoot({apiKey: 'YOURAPIKEY'})
   ],
-  providers: [PagingService],
+  providers: [PagingService, JarwisService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
