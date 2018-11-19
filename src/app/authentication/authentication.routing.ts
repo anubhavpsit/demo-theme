@@ -4,6 +4,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { LockscreenComponent } from './lockscreen/lockscreen.component';
+import { VerifyComponent } from './verify/verify.component';
 
 export const AuthenticationRoutes: Routes = [
   {
@@ -26,6 +27,9 @@ export const AuthenticationRoutes: Routes = [
     }, {
       path: 'lockscreen',
       component: LockscreenComponent
+    }, {
+      path: 'verify/:token',
+      component: VerifyComponent
     }]
   }
 ];
