@@ -375,6 +375,10 @@ const MENUITEMS = [
         state: 'lockscreen',
         name: 'LOCKSCREEN'
       },
+      {
+        state: 'verify',
+        name: 'VERIFY'
+      },
     ]
   },
   {
