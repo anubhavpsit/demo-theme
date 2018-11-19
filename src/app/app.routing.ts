@@ -9,14 +9,16 @@ export const AppRoutes: Routes = [{
   children: [{
     path: '',
     loadChildren: './dashboard/dashboard.module#DashboardModule'
-  }, {
+  },
+  {
     path: 'email',
     loadChildren: './email/email.module#EmailModule'
   },
   {
-    path: 'stores',
-    loadChildren: './stores/stores.module#StoresModule'
-  }, {
+    path: 'store',
+    loadChildren: './store/store.module#StoreModule'
+  },
+  {
     path: 'components',
     loadChildren: './components/components.module#ComponentsModule'
   }, {

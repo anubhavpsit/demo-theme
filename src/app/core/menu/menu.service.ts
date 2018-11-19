@@ -34,10 +34,10 @@ const MENUITEMS = [
     icon: 'basic-paperplane'
   },
   {
-    state: 'stores',
-    name: 'Stores',
+    state: 'store',
+    name: 'Store',
     type: 'link',
-    icon: 'basic-paperplane'
+    icon: 'basic-webpage-img-txt'
   },
   {
     state: 'components',
