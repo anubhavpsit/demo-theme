@@ -29,5 +29,6 @@
       <button class="btn btn-primary" type="submit" [disabled]="!form.valid || showLoading">Login</button>
       <a class="btn btn-outline-primary btn-link" [routerLink]="['/authentication/signup']">Create an account!</a>
     </form>
+    <ng-spinner [display]="showLoading"></ng-spinner>
   </div>
 </div>
