@@ -11,6 +11,7 @@ import { LockscreenComponent } from './lockscreen/lockscreen.component';
 import { VerifyComponent } from './verify/verify.component';
 import { VerifyService } from '../service/verify/verify.service';
 import { SpinnerModule } from 'ng-spinner';
+import { AuthService } from '../service/auth/auth.service';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { SpinnerModule } from 'ng-spinner';
     SpinnerModule
   ],
   declarations: [SigninComponent, SignupComponent, ForgotComponent, LockscreenComponent, VerifyComponent],
-  providers: [VerifyService]
+  providers: [VerifyService,AuthService]
 })
 
 export class AuthenticationModule {}

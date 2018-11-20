@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { AuthService } from '../../service/auth/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -10,16 +11,37 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 export class SigninComponent implements OnInit {
 
   public form: FormGroup;
-  constructor(private fb: FormBuilder, private router: Router) {}
+  public showLoading: boolean;
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
+    this.showLoading = false;
+  }
 
   ngOnInit() {
     this.form = this.fb.group ( {
-      uname: [null , Validators.compose ( [ Validators.required ] )] , password: [null , Validators.compose ( [ Validators.required ] )]
+      email: [null , Validators.compose ( [ Validators.required ] )] , password: [null , Validators.compose ( [ Validators.required ] )]
     } );
+
+    
   }
 
   onSubmit() {
     this.router.navigate ( [ '/' ] );
   }
 
+  onLogin() {
+    this.showLoading = true;
+    this.authService.loginUser(this.form.value).subscribe(
+      data => this.handleData(data),
+      error => this.handleError(error)
+    )}
+
+    handleData(data) {
+      console.dir("data");
+      console.dir(data);
+    }
+    
+    handleError(error) {
+      console.dir("error");
+      console.dir(error);
+    }
 }
