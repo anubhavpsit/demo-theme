@@ -8,6 +8,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from '../../service/auth/auth.service';
 
 const SMALL_WIDTH_BREAKPOINT = 991;
 
@@ -26,6 +27,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private _router: Subscription;
   private mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`);
+  public loggedIn: boolean;
 
   routeOptions: Options;
 
@@ -53,6 +55,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     public translate: TranslateService,
     private modalService: NgbModal,
     private titleService: Title,
+    private Auth: AuthService,
     private zone: NgZone) {
       const browserLang: string = translate.getBrowserLang();
       translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
@@ -60,6 +63,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.Auth.authStatus.subscribe( value => this.loggedIn = value);
     this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
       // Scroll to top on view load
       document.querySelector('.main-content').scrollTop = 0;

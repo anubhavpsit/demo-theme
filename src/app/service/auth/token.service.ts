@@ -19,7 +19,7 @@ export class TokenService {
   }
 
   get() {
-    localStorage.getItem('token');
+    return localStorage.getItem('token');
   }
 
   remove() {
@@ -36,7 +36,6 @@ export class TokenService {
         return Object.values(this.iss).indexOf(payload.iss) > -1 ? true: false
       }
     }
-
     return false;
   }
 
@@ -51,6 +50,8 @@ export class TokenService {
   }
 
   loggedIn() {
-    return this.isValid();
+    let isUserValid = this.isValid();
+    console.dir("isUserValid" + isUserValid);
+    return isUserValid;
   }
 }

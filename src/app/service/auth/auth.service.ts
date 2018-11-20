@@ -1,13 +1,24 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { TokenService } from './token.service';
 //import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
-  loginUser(data) {
-    return this.http.post('http://192.168.1.25/ally_backend/public/index.php/api/login', data );
-  }  
+  private loggedIn = new BehaviorSubject < boolean >(this.Token.loggedIn());
+  authStatus = this.loggedIn.asObservable();
+  
+  changeAuthStatus(value: boolean) {
+    this.loggedIn.next(value);
+  }
+
+  constructor(private Token: TokenService) {
+    console.dir("authStatus");
+    console.dir(this.authStatus);
+    console.dir("loggedIn");
+    console.dir(this.loggedIn); 
+  }
+  
 
 }

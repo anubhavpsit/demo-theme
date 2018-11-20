@@ -15,4 +15,9 @@ export class JarwisService {
   login(data) {
     return this.http.post(`${this.baseUrl}/login`, data );
   }
+
+  loginUser(data) {
+    return this.http.post(`${this.baseUrl}/login`, data );
+    //return this.http.post('http://192.168.1.25/ally_backend/public/index.php/api/login', data );
+  }
 }

@@ -25,7 +25,8 @@
 
   <div ng-sidebar-content class="app-inner">
     <app-header (toggleSidebar)="toogleSidebar()" (openSearch)="openSearch(search)" (toggleFullscreen)="toggleFullscreen()" [heading]="routeOptions.heading"></app-header>
-
+    <p *ngIf="!loggedIn">LogIn</p> 
+    <p *ngIf="loggedIn">LogOut</p> 
     <div class="main-content">
       <router-outlet></router-outlet>
       <app-footer></app-footer>

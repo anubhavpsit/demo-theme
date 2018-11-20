@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { AuthService } from '../../service/auth/auth.service';
 import { TokenService } from '../../service/auth/token.service';
+import { JarwisService } from '../../service/jarwis/jarwis.service';
+import { AuthService } from '../../service/auth/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -15,9 +16,10 @@ export class SigninComponent implements OnInit {
   public showLoading: boolean;
   constructor(
     private fb: FormBuilder, 
-    private router: Router, 
-    private authService: AuthService,
-    private Token: TokenService
+    private router: Router,
+    private Token: TokenService,
+    private Jarwis: JarwisService,
+    private Auth: AuthService
     ) {
     this.showLoading = false;
   }
@@ -36,16 +38,15 @@ export class SigninComponent implements OnInit {
 
   onLogin() {
     this.showLoading = true;
-    this.authService.loginUser(this.form.value).subscribe(
+    this.Jarwis.loginUser(this.form.value).subscribe(
       data => this.handleData(data),
       error => this.handleError(error)
     );
   }
 
     handleData(data) {
-      console.dir("data");
-      console.dir(data);
-      this.Token.handle(data.token);
+      this.Token.handle(data.data.token);
+      this.Auth.changeAuthStatus(true);
       this.router.navigateByUrl('/dashboard');
     }
     
