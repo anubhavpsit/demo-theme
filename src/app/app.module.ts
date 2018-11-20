@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
 
 import { JarwisService } from './service/jarwis/jarwis.service';
 import { PagingService } from './service/paging.service';
+import { SpinnerModule } from 'ng-spinner';
 
 import {
   MenuComponent,
@@ -64,7 +65,8 @@ export function createTranslateLoader(http: HttpClient) {
     LoadingBarRouterModule,
     NgbModule.forRoot(),
     SidebarModule.forRoot(),
-    AgmCoreModule.forRoot({apiKey: 'YOURAPIKEY'})
+    AgmCoreModule.forRoot({apiKey: 'YOURAPIKEY'}),
+    SpinnerModule
   ],
   providers: [PagingService, JarwisService],
   bootstrap: [AppComponent]

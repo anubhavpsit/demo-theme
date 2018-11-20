@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
   public email: string;
   public disableButton: boolean;
   public showview: string;
-
+  
   constructor(
     private fb: FormBuilder, 
     private router: Router, 
@@ -42,30 +42,20 @@ export class SignupComponent implements OnInit {
 
   onSubmit(isValid: boolean) {
     this.disableButton = true; // the button will then be disabled
-    this.showview = "confirmation_page";
-    console.dir(this.form.value.email);
-    //this.router.navigate( ['/'] );
     this.Jarwis.signup(this.form.value).subscribe(
       data => this.handleData(data),
       error => this.handleError(error)      
     );
-
-    // return this.http.post("http://app.ally.com/api/register", this.form.value ).subscribe(
-    //   data => this.handleData(data),
-    //   error => this.handleError(error)      
-      
-    // );
   }
 
   handleData(data) {
-    console.log(data);
-    this.disableButton = false;
+    if (data.success) {
+      this.showview = "confirmation_page";
+      this.disableButton = false;
+    }
   }
 
   handleError(error) {
-    
-    console.log("CAME IN ERROR");
-    console.log(error);
     this.disableButton = false;
   }
 
