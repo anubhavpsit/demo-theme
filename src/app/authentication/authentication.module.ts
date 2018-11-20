@@ -10,6 +10,7 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { LockscreenComponent } from './lockscreen/lockscreen.component';
 import { VerifyComponent } from './verify/verify.component';
 import { VerifyService } from '../service/verify/verify.service';
+import { AuthService } from '../service/auth/auth.service';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { VerifyService } from '../service/verify/verify.service';
     ReactiveFormsModule
   ],
   declarations: [SigninComponent, SignupComponent, ForgotComponent, LockscreenComponent, VerifyComponent],
-  providers: [VerifyService]
+  providers: [VerifyService,AuthService]
 })
 
 export class AuthenticationModule {}
