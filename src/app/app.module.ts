@@ -33,6 +33,8 @@ import {
   AccordionDirective } from './core';
 import { AuthService } from './service/auth/auth.service';
 import { TokenService } from './service/auth/token.service';
+import { AfterLoginService } from './service/after-login.service';
+import { BeforeLoginService } from './service/before-login.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -70,7 +72,7 @@ export function createTranslateLoader(http: HttpClient) {
     AgmCoreModule.forRoot({apiKey: 'YOURAPIKEY'}),
     SpinnerModule
   ],
-  providers: [PagingService, JarwisService, AuthService, TokenService],
+  providers: [PagingService, JarwisService, AuthService, TokenService, AfterLoginService, BeforeLoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
