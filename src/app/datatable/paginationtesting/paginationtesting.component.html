@@ -1,1 +1,42 @@
-<ngb-pagination [collectionSize]="70" [(page)]="page"></ngb-pagination>
+
+<div class="card">
+    <div class="card-header">
+      No more tables
+    </div>
+    <div class="card-body">
+      <div class="no-more-tables">
+        <table class="table table-bordered table-striped mb-0">
+          <thead>
+            <tr>
+              <th>
+                Id
+              </th>
+              <th>
+                First Name
+              </th>
+              <th>
+                Last Name
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of rows;">
+              <td>{{row.id}}</td>
+              <td>{{row.first_name}}</td>
+              <td>{{row.last_name}}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+      </div>
+    </div>
+  </div>  
+
+  <ngb-pagination 
+  [collectionSize]="12" 
+  [pageSize]="3" 
+  [(page)]="page"
+  (pageChange)="loadPage($event)">
+  </ngb-pagination>  
+  <!-- <ngb-pagination [collectionSize]="count" [pageSize]="limit" [(page)]="onPage(offset)"></ngb-pagination> -->
+<!-- <ngb-pagination [collectionSize]="70" [(page)]="page"></ngb-pagination> -->

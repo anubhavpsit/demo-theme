@@ -7,7 +7,8 @@ export class PagingService {
 
   fetch(r, cb) {
     const req = new XMLHttpRequest();
-    let pageNumber = r['offset'] + 1;
+    //let pageNumber = r['offset'] + 1;
+    let pageNumber = r['offset'];
     req.open('GET', 'https://reqres.in/api/users?page='+pageNumber);
     req.onload = () => {
       cb(JSON.parse(req.response));
