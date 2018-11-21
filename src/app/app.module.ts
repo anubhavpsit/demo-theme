@@ -70,7 +70,8 @@ export function createTranslateLoader(http: HttpClient) {
     NgbModule.forRoot(),
     SidebarModule.forRoot(),
     AgmCoreModule.forRoot({apiKey: 'YOURAPIKEY'}),
-    SpinnerModule
+    SpinnerModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBbnFNffz2P2GvGDLoufRPsbQeZb4TR3Zs'})
   ],
   providers: [PagingService, JarwisService, AuthService, TokenService, AfterLoginService, BeforeLoginService],
   bootstrap: [AppComponent]
