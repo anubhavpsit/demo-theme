@@ -61,7 +61,7 @@ export function createTranslateLoader(http: HttpClient) {
     LoadingBarRouterModule,
     NgbModule.forRoot(),
     SidebarModule.forRoot(),
-    AgmCoreModule.forRoot({apiKey: 'YOURAPIKEY'})
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBbnFNffz2P2GvGDLoufRPsbQeZb4TR3Zs'})
   ],
   providers: [PagingService],
   bootstrap: [AppComponent]
