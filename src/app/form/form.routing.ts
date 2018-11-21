@@ -6,6 +6,7 @@ import { EditorComponent } from './editor/editor.component';
 import { ValidationComponent } from './validation/validation.component';
 import { UploadComponent } from './upload/upload.component';
 import { FormTreeComponent } from './tree/tree.component';
+import { MultiplefileuploadComponent } from './multiplefileupload/multiplefileupload.component';
 
 export const FormRoutes: Routes = [
   {
@@ -45,6 +46,12 @@ export const FormRoutes: Routes = [
       component: FormTreeComponent,
       data: {
         heading: 'Tree'
+      }
+    }, {
+      path: 'multiplefileupload',
+      component: MultiplefileuploadComponent,
+      data: {
+        heading: 'Multiple File Upload'
       }
     }]
   }

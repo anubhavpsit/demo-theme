@@ -18,6 +18,7 @@ import { TimepickerComponent } from './timepicker/timepicker.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { TypeaheadComponent } from './typeahead/typeahead.component';
 import { ButtonIconsComponent } from './button-icons/button-icons.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
 
 export const ComponentsRoutes: Routes = [
   {
@@ -87,6 +88,13 @@ export const ComponentsRoutes: Routes = [
       component: DropdownComponent,
       data: {
         heading: 'Dropdown'
+      }
+    },
+    {
+      path: 'fileupload',
+      component: FileuploadComponent,
+      data: {
+        heading: 'File Upload'
       }
     }, {
       path: 'modal',
