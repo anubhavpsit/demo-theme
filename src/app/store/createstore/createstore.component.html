@@ -11,6 +11,22 @@
     <label for="storemobile">Store Mobile</label>
     <input type="text" class="form-control" id="storemobile" placeholder="Enter store mobile">
   </div>
+  <div class="form-group">
+    <img src="assets/images/camra.png"  (click)=openCamera(); style="cursor:pointer" />
+  </div>
+  <div class="form-group">
+    <div id="camera_container"  *ngIf="show_camera_section">
+        <div><video #video id="video" width="640" height="480" autoplay></video></div>
+        <div><button id="snap" (click)="captureProductImage()">Snap Photo</button></div>
+        <canvas #canvas id="canvas" width="640" height="480"></canvas>
+        <ul>
+            <li *ngFor="let c of captures">
+                <img src="{{ c }}" height="50" />
+            </li>
+        </ul>
+    </div>  
+  </div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
   <a class="btn btn-outline-primary btn-link"  [routerLink]="['/store']">Go Back</a>
 <br>
