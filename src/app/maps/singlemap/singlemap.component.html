@@ -1,0 +1,44 @@
+
+<form>
+<div class="form-group">
+  <label for="latitude">Latitude</label>
+  <button type="button" class="btn btn-outline-primary btn-link" (click)="changeCordinate(content)">Change Cordinate</button>
+  <input type="text" class="form-control" id="latitude" [(ngModel)]="latitude" name="latitude" placeholder="Enter latitude">
+</div>
+<div class="form-group">
+  <label for="longitude">Longitude</label>
+  <input type="text" class="form-control" id="longitude" [(ngModel)]="longitude" name="longitude" placeholder="Enter longitude">
+</div>
+<button type="button" class="btn btn-primary" (click)="getMapLocation()">Submit</button>
+
+<ng-template ngbModalContainer class="modal-dialog modal-lg"></ng-template>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+      <h6 class="modal-title text-uppercase">Select Cordinate</h6>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body p-0" style="width:100%;height: 100%;">
+              <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [clickableIcons]="false" [draggableCursor]="draggableCursor" (mapClick)="mapClicked($event)">
+                <agm-marker [latitude]="latitude" [longitude]="longitude">
+                  <agm-info-window>InfoWindow content</agm-info-window>
+                </agm-marker>
+              </agm-map>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>
+
+
+
+</form>

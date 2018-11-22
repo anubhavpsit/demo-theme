@@ -320,6 +320,10 @@ const MENUITEMS = [
       {
         state: 'fullscreen',
         name: 'FULLSCREEN'
+      },
+      {
+        state: 'singlemap',
+        name: 'SINGLEMAP'
       }
     ]
   },
