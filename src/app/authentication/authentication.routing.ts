@@ -5,11 +5,18 @@ import { SignupComponent } from './signup/signup.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { LockscreenComponent } from './lockscreen/lockscreen.component';
 import { VerifyComponent } from './verify/verify.component';
+import { LoginComponent } from './login/login.component';
 
 export const AuthenticationRoutes: Routes = [
   {
     path: '',
     children: [{
+      path: '',
+      component: LoginComponent
+    }, {
+      path: 'login',
+      component: LoginComponent
+    }, {
       path: 'signin',
       component: SigninComponent
     }, {
