@@ -16,6 +16,7 @@ import { EditorComponent } from './editor/editor.component';
 import { ValidationComponent } from './validation/validation.component';
 import { UploadComponent } from './upload/upload.component';
 import { FormTreeComponent } from './tree/tree.component';
+import { MultiplefileuploadComponent } from './multiplefileupload/multiplefileupload.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,7 @@ import { FormTreeComponent } from './tree/tree.component';
     TextMaskModule,
     FileUploadModule
   ],
-  declarations: [BasicComponent, MasksComponent, EditorComponent, ValidationComponent, UploadComponent, FormTreeComponent]
+  declarations: [BasicComponent, MasksComponent, EditorComponent, ValidationComponent, UploadComponent, FormTreeComponent, MultiplefileuploadComponent]
 })
 
 export class FormModule {}

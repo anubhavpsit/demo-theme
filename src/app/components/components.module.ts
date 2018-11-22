@@ -25,6 +25,7 @@ import { TimepickerComponent } from './timepicker/timepicker.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { TypeaheadComponent } from './typeahead/typeahead.component';
 import { ButtonIconsComponent } from './button-icons/button-icons.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import { ButtonIconsComponent } from './button-icons/button-icons.component';
     TimepickerComponent,
     TooltipComponent,
     TypeaheadComponent,
-    ButtonIconsComponent
+    ButtonIconsComponent,
+    FileuploadComponent
   ]
 })
 

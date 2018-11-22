@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { GoogleComponent } from './google/google.component';
 import { FullscreenComponent } from './fullscreen/fullscreen.component';
+import { SinglemapComponent } from './singlemap/singlemap.component';
 
 export const MapsRoutes: Routes = [
   {
@@ -19,6 +20,12 @@ export const MapsRoutes: Routes = [
         heading: 'Full Page Map',
         removeFooter: true,
         mapHeader: true
+      }
+    }, {
+      path: 'singlemap',
+      component: SinglemapComponent,
+      data: {
+        heading: 'Single Map'
       }
     }]
   }

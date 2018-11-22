@@ -84,6 +84,10 @@ const MENUITEMS = [
         name: 'DROPDOWN'
       },
       {
+        state: 'fileupload',
+        name: 'FILEUPLOAD'
+      },
+      {
         state: 'modal',
         name: 'MODAL'
       },
@@ -201,6 +205,10 @@ const MENUITEMS = [
         state: 'tree',
         name: 'TREE'
       },
+      {
+        state: 'multiplefileupload',
+        name: 'MULTIPLEFILEUPLOAD'
+      },
     ]
   },
   {
@@ -312,6 +320,10 @@ const MENUITEMS = [
       {
         state: 'fullscreen',
         name: 'FULLSCREEN'
+      },
+      {
+        state: 'singlemap',
+        name: 'SINGLEMAP'
       }
     ]
   },
