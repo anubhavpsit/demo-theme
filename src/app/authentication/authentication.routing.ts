@@ -13,18 +13,18 @@ export const AuthenticationRoutes: Routes = [
     children: [{
       path: '',
       component: SigninComponent,
-      canActivate: [BeforeLoginService]
+      //canActivate: [BeforeLoginService]
     }, {
       path: 'signin',
       component: SigninComponent,
-      canActivate: [BeforeLoginService]
+      //canActivate: [BeforeLoginService]
     }, {
       path: 'logout',
       component: SigninComponent
     }, {
       path: 'signup',
       component: SignupComponent,
-      canActivate: [BeforeLoginService]
+      //canActivate: [BeforeLoginService]
     }, {
       path: 'forgot',
       component: ForgotComponent

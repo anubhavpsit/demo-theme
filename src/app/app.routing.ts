@@ -2,10 +2,13 @@ import { Routes } from '@angular/router';
 
 import { AdminLayoutComponent } from './core';
 import { AuthLayoutComponent } from './core';
+import { AfterLoginService } from './service/after-login.service';
+import { BeforeLoginService } from './service/before-login.service';
 
 export const AppRoutes: Routes = [{
   path: '',
   component: AuthLayoutComponent,
+  //canActivate: [BeforeLoginService],
   children: [{
     path: '',
     loadChildren: './authentication/authentication.module#AuthenticationModule'
@@ -22,6 +25,7 @@ export const AppRoutes: Routes = [{
 },{
   path: '',
   component: AdminLayoutComponent,
+  //canActivate: [AfterLoginService],
   children: [{
     path: '',
     loadChildren: './dashboard/dashboard.module#DashboardModule'
