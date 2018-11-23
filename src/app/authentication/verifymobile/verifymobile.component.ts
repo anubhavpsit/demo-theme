@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-verifymobile',
+  templateUrl: './verifymobile.component.html',
+  styleUrls: ['./verifymobile.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class VerifymobileComponent implements OnInit {
 
   public form: FormGroup;
   public showLoading: boolean;
@@ -18,22 +18,22 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group ( {
-      mobile: [null , Validators.compose ( [ Validators.required ] )]
+      OTP: [null , Validators.compose ( [ Validators.required ] )]
     } );
 
     
   }
 
   onSubmit() {
-    this.router.navigate ( [ '/verifymobile' ] );
+    this.router.navigate ( [ '/resetpassword' ] );
   }
 
-  onLogin() {
-    this.showLoading = true;
-    this.authService.loginUser(this.form.value).subscribe(
-      data => this.handleData(data),
-      error => this.handleError(error)
-    )}
+  // onVerify() {
+  //   this.showLoading = true;
+  //   this.authService.loginUser(this.form.value).subscribe(
+  //     data => this.handleData(data),
+  //     error => this.handleError(error)
+  //   )}
 
     handleData(data) {
       console.dir("data");

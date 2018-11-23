@@ -11,7 +11,7 @@ export const AppRoutes: Routes = [ {
     loadChildren: './authentication/authentication.module#AuthenticationModule'
   },
     {
-    path: 'authentication',
+    path: 'authentications',
     loadChildren: './authentication/authentication.module#AuthenticationModule'
   }, {
     path: 'error',
@@ -25,7 +25,7 @@ export const AppRoutes: Routes = [ {
   path: '',
   component: AdminLayoutComponent,
   children: [{
-    path: '',
+    path: 'dashboard',
     loadChildren: './dashboard/dashboard.module#DashboardModule'
   },
   {
