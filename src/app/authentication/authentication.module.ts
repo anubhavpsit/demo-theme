@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { VerifymobileComponent } from './verifymobile/verifymobile.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { VerifymobileService } from '../service/verifymobile.service';
+import { AppsettingService } from '../service/appsetting.service';
+import { EnterpasswordComponent } from './enterpassword/enterpassword.component';
 
 @NgModule({
   imports: [
@@ -23,8 +25,8 @@ import { VerifymobileService } from '../service/verifymobile.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [SigninComponent, SignupComponent, ForgotComponent, LockscreenComponent, VerifyComponent, LoginComponent, VerifymobileComponent, ResetpasswordComponent],
-  providers: [VerifyService,AuthService,VerifymobileService]
+  declarations: [SigninComponent, SignupComponent, ForgotComponent, LockscreenComponent, VerifyComponent, LoginComponent, VerifymobileComponent, ResetpasswordComponent, EnterpasswordComponent],
+  providers: [VerifyService,AuthService,VerifymobileService,AppsettingService]
 })
 
 export class AuthenticationModule {}

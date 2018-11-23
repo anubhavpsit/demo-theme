@@ -8,6 +8,7 @@ import { VerifyComponent } from './verify/verify.component';
 import { LoginComponent } from './login/login.component';
 import { VerifymobileComponent } from './verifymobile/verifymobile.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { EnterpasswordComponent } from './enterpassword/enterpassword.component';
 
 export const AuthenticationRoutes: Routes = [
   {
@@ -39,6 +40,9 @@ export const AuthenticationRoutes: Routes = [
     }, {
       path: 'resetpassword',
       component: ResetpasswordComponent
+    }, {
+      path: 'verify',
+      component: EnterpasswordComponent
     }]
   }
 ];

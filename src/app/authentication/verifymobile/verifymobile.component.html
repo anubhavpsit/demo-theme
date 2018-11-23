@@ -10,12 +10,14 @@
           <label for="OTP" class="form-control-label">
             Enter your OTP
           </label>
-          <input type="text" class="form-control" placeholder="OTP" [formControl]="form.controls['OTP']" [ngClass]="{'is-invalid': form.controls['OTP'].hasError('required') && form.controls['OTP'].touched}"/>
+          <input type="text" class="form-control" placeholder="OTP" [formControl]="form.controls['OTP']" [(ngModel)]="OTP" [ngClass]="{'is-invalid': form.controls['OTP'].hasError('required') && form.controls['OTP'].touched}"/>
           <div class="invalid-feedback" *ngIf="form.controls['OTP'].hasError('required') && form.controls['OTP'].touched">OTP is required.</div>
         </fieldset>
         <div class="block"></div>
         <button class="btn btn-primary" type="submit" [disabled]="!form.valid || showLoading">Submit</button>
-        <!-- <button class="btn btn-primary" type="submit" [disabled]="!form.valid || showLoading">Resend OTP</button> -->
+        <a href="javascript:void(0);" class="nav-link"  (click)="resendOtp()">
+          Resend OTP
+        </a>
       </form>
     </div>
   </div>

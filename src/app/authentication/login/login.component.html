@@ -10,7 +10,7 @@
           <label for="mobile" class="form-control-label">
             Enter your mobile
           </label>
-          <input type="text" class="form-control" placeholder="mobile" [formControl]="form.controls['mobile']" [ngClass]="{'is-invalid': form.controls['mobile'].hasError('required') && form.controls['mobile'].touched}"/>
+          <input type="text" class="form-control" placeholder="mobile" [formControl]="form.controls['mobile']" [(ngModel)]="mobile" [ngClass]="{'is-invalid': form.controls['mobile'].hasError('required') && form.controls['mobile'].touched}"/>
           <div class="invalid-feedback" *ngIf="form.controls['mobile'].hasError('required') && form.controls['mobile'].touched">mobile is required.</div>
         </fieldset>
         <!-- <fieldset class="form-group">

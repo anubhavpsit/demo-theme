@@ -25,7 +25,16 @@ export class ResetpasswordComponent implements OnInit {
   }
 
   onSubmit() {
-    this.router.navigate ( [ '/dashboard' ] );
+    if(localStorage.getItem("mobile")==null)
+    {
+      this.router.navigate ( [ '/' ] );
+      //console.log("Invalid mobile number");
+    }
+    else
+    {
+      
+      this.router.navigate ( [ '/dashboard' ] );
+    }
   }
 
 }

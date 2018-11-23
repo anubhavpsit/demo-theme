@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth/auth.service';
-import { VerifymobileService } from '../../service/verifymobile.service';
+import { AppsettingService } from '../../service/appsetting.service';
 
 @Component({
   selector: 'app-verifymobile',
@@ -13,8 +13,12 @@ export class VerifymobileComponent implements OnInit {
 
   public form: FormGroup;
   public showLoading: boolean;
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private verifymobileService: VerifymobileService ) {
+  OTP: number;
+  mobile: number;
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService,private appSetting: AppsettingService) {
     this.showLoading = false;
+    //console.log(this.appSetting.mobileNumber);
+    console.log(localStorage.getItem("mobile"));
   }
 
   ngOnInit() {
@@ -27,10 +31,23 @@ export class VerifymobileComponent implements OnInit {
 
   onSubmit() {
     //console.log("aaaa");
-    this.verifymobileService.get();
-    this.router.navigate ( [ '/resetpassword' ] );
+    //this.verifymobileService.get();
+    console.log(this.OTP);
+
+    if(localStorage.getItem("mobile")==null)
+    {
+      this.router.navigate ( [ '/' ] );
+      //console.log("Invalid mobile number");
+    }
+    else
+    {
+      this.router.navigate ( [ '/resetpassword' ] );
+    }
   }
 
+  resendOtp() {
+    console.log("Resend OTP");
+  }
   // onVerify() {
   //   this.showLoading = true;
   //   this.authService.loginUser(this.form.value).subscribe(
