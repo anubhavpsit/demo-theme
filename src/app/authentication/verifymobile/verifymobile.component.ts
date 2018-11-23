@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth/auth.service';
+import { VerifymobileService } from '../../service/verifymobile.service';
 
 @Component({
   selector: 'app-verifymobile',
@@ -12,7 +13,7 @@ export class VerifymobileComponent implements OnInit {
 
   public form: FormGroup;
   public showLoading: boolean;
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService, private verifymobileService: VerifymobileService ) {
     this.showLoading = false;
   }
 
@@ -25,6 +26,8 @@ export class VerifymobileComponent implements OnInit {
   }
 
   onSubmit() {
+    //console.log("aaaa");
+    this.verifymobileService.get();
     this.router.navigate ( [ '/resetpassword' ] );
   }
 
