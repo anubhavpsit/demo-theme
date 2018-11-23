@@ -35,6 +35,7 @@ import { AuthService } from './service/auth/auth.service';
 import { TokenService } from './service/auth/token.service';
 import { AfterLoginService } from './service/after-login.service';
 import { BeforeLoginService } from './service/before-login.service';
+import { AuthGuard } from './auth.guard';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -73,7 +74,7 @@ export function createTranslateLoader(http: HttpClient) {
     SpinnerModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyD2cfJO3G7l9BwoZLI_jkakcZY7zpc8vrE'})
   ],
-  providers: [PagingService, JarwisService, AuthService, TokenService, AfterLoginService, BeforeLoginService],
+  providers: [PagingService, JarwisService, AuthService, TokenService, AfterLoginService, BeforeLoginService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

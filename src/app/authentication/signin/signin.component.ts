@@ -22,19 +22,20 @@ export class SigninComponent implements OnInit {
     private Auth: AuthService
     ) {
     this.showLoading = false;
+    if (this.Token.loggedIn()) {
+      this.router.navigateByUrl('/dashboard');
+    }
   }
 
   ngOnInit() {
     this.form = this.fb.group ( {
       email: [null , Validators.compose ( [ Validators.required ] )] , password: [null , Validators.compose ( [ Validators.required ] )]
-    } );
-
-    
+    } );    
   }
 
-  onSubmit() {
-    this.router.navigate ( [ '/' ] );
-  }
+  // onSubmit() {
+  //   this.router.navigate ( [ '/' ] );
+  // }
 
   onLogin() {
     this.showLoading = true;
@@ -46,8 +47,11 @@ export class SigninComponent implements OnInit {
 
     handleData(data) {
       this.Token.handle(data.data.token);
-      this.Auth.changeAuthStatus(true);
+      //this.Auth.changeAuthStatus(true);
+      //this.Auth.setLoggedIn(true);
+      console.dir(data);
       this.router.navigateByUrl('/dashboard');
+      
     }
     
     handleError(error) {

@@ -51,7 +51,7 @@ export class TokenService {
 
   loggedIn() {
     let isUserValid = this.isValid();
-    console.dir("isUserValid" + isUserValid);
+    console.dir("User is loggred in " + isUserValid);
     return isUserValid;
   }
 }

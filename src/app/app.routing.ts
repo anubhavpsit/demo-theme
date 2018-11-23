@@ -4,13 +4,33 @@ import { AdminLayoutComponent } from './core';
 import { AuthLayoutComponent } from './core';
 import { AfterLoginService } from './service/after-login.service';
 import { BeforeLoginService } from './service/before-login.service';
+import { AuthGuard } from './auth.guard';
 
 export const AppRoutes: Routes = [{
   path: '',
-  component: AdminLayoutComponent,
-  //canActivate: [AfterLoginService],
+  component: AuthLayoutComponent,
+  //canActivate: [BeforeLoginService],
   children: [{
     path: '',
+    loadChildren: './authentication/authentication.module#AuthenticationModule'
+  }, {
+    path: 'authentication',
+    loadChildren: './authentication/authentication.module#AuthenticationModule'
+  }, {
+    path: 'error',
+    loadChildren: './error/error.module#ErrorModule'
+  }, {
+    path: 'landing',
+    loadChildren: './landing/landing.module#LandingModule'
+  }]
+}, {
+  path: '',
+  component: AdminLayoutComponent,
+  //canActivate: [AfterLoginService],
+  //canActivate: [AuthGuard],
+  canActivateChild: [AuthGuard],
+  children: [{
+    path: 'dashboarda',
     loadChildren: './dashboard/dashboard.module#DashboardModule'
   }, {
     path: 'dashboard',
@@ -68,23 +88,6 @@ export const AppRoutes: Routes = [{
   }, {
     path: 'docs',
     loadChildren: './docs/docs.module#DocsModule'
-  }]
-}, {
-  path: '',
-  component: AuthLayoutComponent,
-  //canActivate: [BeforeLoginService],
-  children: [{
-    path: '',
-    loadChildren: './authentication/authentication.module#AuthenticationModule'
-  }, {
-    path: 'authentication',
-    loadChildren: './authentication/authentication.module#AuthenticationModule'
-  }, {
-    path: 'error',
-    loadChildren: './error/error.module#ErrorModule'
-  }, {
-    path: 'landing',
-    loadChildren: './landing/landing.module#LandingModule'
   }]
 }, {
   path: '**',

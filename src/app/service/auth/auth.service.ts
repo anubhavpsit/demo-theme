@@ -6,19 +6,32 @@ import { TokenService } from './token.service';
 @Injectable()
 export class AuthService {
 
-  private loggedIn = new BehaviorSubject < boolean >(this.Token.loggedIn());
-  authStatus = this.loggedIn.asObservable();
-  
-  changeAuthStatus(value: boolean) {
-    this.loggedIn.next(value);
-  }
+  //private loggedIn = new BehaviorSubject < boolean >(this.Token.loggedIn());
+  //authStatus = this.loggedIn.asObservable();
+  //private loggedIn:boolean;
+  public loggedInStatus = false;
 
   constructor(private Token: TokenService) {
-    console.dir("authStatus");
-    console.dir(this.authStatus);
-    console.dir("loggedIn");
-    console.dir(this.loggedIn); 
+    //this.loggedIn = false;
+    // console.dir("authStatus");
+    // console.dir(this.authStatus);
+    // console.dir("loggedIn");
+    // console.dir(this.loggedIn); 
   }
-  
 
+  // changeAuthStatus(value: boolean) {
+  //   //this.loggedIn.next(value);
+  // }
+    get isLoggedIn() {
+      //return this.loggedInStatus;
+      return false;
+    }
+    
+    setLoggedIn(value: boolean) {
+      console.dir("User logged in set to " + value);
+      this.loggedInStatus = value;
+    }
+
+
+  
 }

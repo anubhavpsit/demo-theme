@@ -63,7 +63,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.Auth.authStatus.subscribe( value => this.loggedIn = value);
+    //this.Auth.authStatus.subscribe( value => this.loggedIn = value);
     this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
       // Scroll to top on view load
       document.querySelector('.main-content').scrollTop = 0;

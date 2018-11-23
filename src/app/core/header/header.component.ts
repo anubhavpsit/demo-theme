@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { TokenService } from '../../service/auth/token.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth/auth.service';
+import { JarwisService } from '../../service/jarwis/jarwis.service';
 
 @Component({
   selector: 'app-header',
@@ -14,16 +15,34 @@ export class HeaderComponent {
   @Output() openSearch = new EventEmitter<void>();
   @Output() toggleFullscreen = new EventEmitter<void>();
 
+  public showLoading: boolean;
+
   constructor(
     private router: Router,
     private Auth: AuthService,
-    private Token: TokenService
+    private Token: TokenService,
+    private Jarwis: JarwisService
     ) {}
 
   logOut(event: MouseEvent) {
     event.preventDefault();
-    this.Auth.changeAuthStatus(false);
     this.Token.remove();
     this.router.navigateByUrl('/signin');
+    // this.Jarwis.logout({"token" : this.Token.get()}).subscribe(
+    //   data => this.handleData(data),
+    //   error => this.handleError(error)
+    // );
   }
+
+  // handleData(data) {
+  //   console.dir("data");
+  //   console.dir(data);
+  //   this.Token.remove();
+  //   // this.router.navigateByUrl('/signin');
+  // }
+  
+  // handleError(error) {
+  //   console.dir("error");
+  //   console.dir(error);
+  // }
 }
