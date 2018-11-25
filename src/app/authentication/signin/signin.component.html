@@ -6,6 +6,10 @@
         <img src="assets/images/logo.png" class="avatar-xs mb-1" alt="">
         <p class="ff-headers text-uppercase">Sign in to your account</p>
       </div>
+      <ngb-alert *ngIf="showUiMessage" [type]="alert.type" [dismissible]="alert.dismissible" (close)="showUiMessage=false">
+        {{alert.message}}
+      </ngb-alert>
+
       <fieldset class="form-group">
         <label for="email" class="form-control-label">
           Enter your email
@@ -19,7 +23,7 @@
         </label>
         <input type="password" class="form-control" placeholder="********" [formControl]="form.controls['password']" [ngClass]="{'is-invalid': form.controls['password'].hasError('required') && form.controls['password'].touched}"/>
         <div class="invalid-feedback" *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched">Password is required.</div>
-        <a [routerLink]="['/authentication/forgot']" class="form-text"><small>Recover password</small></a>
+        <a [routerLink]="['/forgot']" class="form-text"><small>Recover password</small></a>
       </fieldset>
       <!-- <div class="custom-control custom-checkbox mb-3">
         <input type="checkbox" class="custom-control-input" id="customCheck1">

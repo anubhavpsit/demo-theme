@@ -26,23 +26,29 @@ export class HeaderComponent {
 
   logOut(event: MouseEvent) {
     event.preventDefault();
-    this.Token.remove();
-    this.router.navigateByUrl('/signin');
-    // this.Jarwis.logout({"token" : this.Token.get()}).subscribe(
-    //   data => this.handleData(data),
-    //   error => this.handleError(error)
-    // );
+    this.Jarwis.logout({"token" : this.Token.get()}).subscribe(
+      data => this.handleData(data),
+      error => this.handleError(error)
+    );
   }
 
-  // handleData(data) {
-  //   console.dir("data");
-  //   console.dir(data);
-  //   this.Token.remove();
-  //   // this.router.navigateByUrl('/signin');
-  // }
+  test(event: MouseEvent) {
+    event.preventDefault();
+    this.Jarwis.test({"token" : this.Token.get()}).subscribe(
+      data => console.dir(data),
+      error => console.dir(error)
+    );
+  }
+
+  handleData(data) {
+    console.dir("data");
+    console.dir(data);
+    this.Token.remove();
+    this.router.navigateByUrl('/signin');
+  }
   
-  // handleError(error) {
-  //   console.dir("error");
-  //   console.dir(error);
-  // }
+  handleError(error) {
+    console.dir("error");
+    console.dir(error);
+  }
 }

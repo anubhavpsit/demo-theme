@@ -13,6 +13,8 @@ import { VerifyService } from '../service/verify/verify.service';
 import { SpinnerModule } from 'ng-spinner';
 import { AuthService } from '../service/auth/auth.service';
 import { TokenService } from '../service/auth/token.service';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -20,9 +22,10 @@ import { TokenService } from '../service/auth/token.service';
     RouterModule.forChild(AuthenticationRoutes),
     FormsModule,
     ReactiveFormsModule,
-    SpinnerModule
+    SpinnerModule,
+    NgbModule
   ],
-  declarations: [SigninComponent, SignupComponent, ForgotComponent, LockscreenComponent, VerifyComponent],
+  declarations: [SigninComponent, SignupComponent, ForgotComponent, LockscreenComponent, VerifyComponent, ResetpasswordComponent],
   providers: [VerifyService,AuthService,TokenService]
 })
 

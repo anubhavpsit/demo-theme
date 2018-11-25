@@ -4,6 +4,13 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { TokenService } from '../../service/auth/token.service';
 import { JarwisService } from '../../service/jarwis/jarwis.service';
 import { AuthService } from '../../service/auth/auth.service';
+import { NgbAlertConfig } from '@ng-bootstrap/ng-bootstrap';
+
+export interface IAlert {
+  id: number;
+  type: string;
+  message: string;
+}
 
 @Component({
   selector: 'app-signin',
@@ -12,9 +19,12 @@ import { AuthService } from '../../service/auth/auth.service';
 })
 export class SigninComponent implements OnInit {
 
+  public alert: any;
+  public showUiMessage: boolean;
   public form: FormGroup;
   public showLoading: boolean;
   constructor(
+    alertConfig: NgbAlertConfig,
     private fb: FormBuilder, 
     private router: Router,
     private Token: TokenService,
@@ -22,6 +32,7 @@ export class SigninComponent implements OnInit {
     private Auth: AuthService
     ) {
     this.showLoading = false;
+    this.showUiMessage = false;
     if (this.Token.loggedIn()) {
       this.router.navigateByUrl('/dashboard');
     }
@@ -39,6 +50,7 @@ export class SigninComponent implements OnInit {
 
   onLogin() {
     this.showLoading = true;
+    this.showUiMessage = false;
     this.Jarwis.loginUser(this.form.value).subscribe(
       data => this.handleData(data),
       error => this.handleError(error)
@@ -55,7 +67,13 @@ export class SigninComponent implements OnInit {
     }
     
     handleError(error) {
-      console.dir("error");
-      console.dir(error);
+      this.showLoading = false;
+      this.showUiMessage = true;
+      this.alert = {
+        id: 1,
+        type: 'danger',
+        message: error.error.error,
+        dismissible:true 
+      };
     }
 }

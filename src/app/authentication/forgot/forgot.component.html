@@ -6,15 +6,19 @@
         <img src="assets/images/logo.png" class="avatar-xs mb-1" alt="">
         <p class="ff-headers text-uppercase">Recover your password</p>
       </div>
+      <ngb-alert *ngIf="showUiMessage" [type]="alert.type" [dismissible]="alert.dismissible" (close)="showUiMessage=false">
+          {{alert.message}}
+        </ngb-alert>
       <fieldset class="form-group">
-        <label for="username" class="form-control-label">
-          Enter your username
+        <label for="email" class="form-control-label">
+          Enter your email
         </label>
-        <input type="text" class="form-control" placeholder="Username" [formControl]="form.controls['uname']" [ngClass]="{'is-invalid': form.controls['uname'].hasError('required') && form.controls['uname'].touched}"/>
-        <div class="invalid-feedback" *ngIf="form.controls['uname'].hasError('required') && form.controls['uname'].touched">Username is required.</div>
+        <input type="text" class="form-control" placeholder="Email" [formControl]="form.controls['email']" [ngClass]="{'is-invalid': form.controls['email'].hasError('required') && form.controls['email'].touched}"/>
+        <div class="invalid-feedback" *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched">Email is required.</div>
       </fieldset>
       <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Reset password</button>
       <a class="btn btn-outline-primary btn-link" [routerLink]="['/signin']">Login!</a>
     </form>
+    <ng-spinner [display]="showLoading"></ng-spinner>
   </div>
 </div>
