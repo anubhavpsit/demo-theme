@@ -59,11 +59,10 @@ export class SigninComponent implements OnInit {
 
     handleData(data) {
       this.Token.handle(data.data.token);
+      localStorage.setItem('user_data', JSON.stringify(data.data.user_data));
       //this.Auth.changeAuthStatus(true);
       //this.Auth.setLoggedIn(true);
-      console.dir(data);
       this.router.navigateByUrl('/dashboard');
-      
     }
     
     handleError(error) {

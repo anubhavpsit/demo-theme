@@ -28,14 +28,18 @@
           <i class="icon icon-basic-message-multiple mr-3"></i>
           <span>Notifications</span>
         </a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" (click) = "logOut($event)" href="#">
+        <a class="dropdown-item" (click) = "rest($event)" href="#">
           <i class="icon icon-arrows-switch-vertical mr-3"></i>
-          <span>Signout</span>
+          <span>Rest</span>
         </a>
         <a class="dropdown-item" (click) = "test($event)" href="#">
           <i class="icon icon-arrows-switch-vertical mr-3"></i>
           <span>Test</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" (click) = "logOut($event)" href="#">
+          <i class="icon icon-arrows-switch-vertical mr-3"></i>
+          <span>Signout</span>
         </a>
       </div>
     </li>

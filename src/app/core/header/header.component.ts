@@ -40,9 +40,17 @@ export class HeaderComponent {
     );
   }
 
+  rest(event: MouseEvent) {
+    event.preventDefault();
+    this.Jarwis.rest({"token" : this.Token.get()}).subscribe(
+      data => console.dir(data),
+      error => console.dir(error)
+    );
+  }
+
+
   handleData(data) {
-    console.dir("data");
-    console.dir(data);
+    localStorage.removeItem('user_data');
     this.Token.remove();
     this.router.navigateByUrl('/signin');
   }

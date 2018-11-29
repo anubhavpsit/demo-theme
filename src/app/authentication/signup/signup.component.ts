@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { CustomValidators } from 'ng2-validation';
 import { HttpClient } from '@angular/common/http';
 import { JarwisService } from '../../service/jarwis/jarwis.service';
+import { NgbAlertConfig } from '@ng-bootstrap/ng-bootstrap';
 
 const password = new FormControl('', Validators.required);
 const confirmPassword = new FormControl('', CustomValidators.equalTo(password));
@@ -15,18 +16,22 @@ const confirmPassword = new FormControl('', CustomValidators.equalTo(password));
 })
 export class SignupComponent implements OnInit {
 
+  public alert: any;
+  public showUiMessage: boolean;
   public form: FormGroup;
   public email: string;
   public disableButton: boolean;
   public showview: string;
   
   constructor(
+    alertConfig: NgbAlertConfig,
     private fb: FormBuilder, 
     private router: Router, 
     private http: HttpClient, 
     private Jarwis: JarwisService
   ) {
       this.disableButton = false;
+      this.showUiMessage = false;
       this.showview = "signup_page";
     }
 
@@ -41,6 +46,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(isValid: boolean) {
+    this.showUiMessage = false;
     this.disableButton = true; // the button will then be disabled
     this.Jarwis.signup(this.form.value).subscribe(
       data => this.handleData(data),
@@ -56,6 +62,13 @@ export class SignupComponent implements OnInit {
   }
 
   handleError(error) {
+    this.showUiMessage = true;
+    this.alert = {
+      id: 1,
+      type: 'danger',
+      message: error.error.error.password,
+      dismissible:true 
+    };
     this.disableButton = false;
   }
 

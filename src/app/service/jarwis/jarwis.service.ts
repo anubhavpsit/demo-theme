@@ -54,7 +54,7 @@ export class JarwisService {
       headers: new HttpHeaders(headerDict), 
     };
     
-    return this.http.get(`${this.baseUrl}/logout`, requestOptions );
+    return this.http.post(`${this.baseUrl}/logout`, {}, requestOptions );
     //return this.http.post('http://192.168.1.25/ally_backend/public/index.php/api/login', data );
   }
 
@@ -68,6 +68,28 @@ export class JarwisService {
       headers: new HttpHeaders(headerDict), 
     };
     
-    return this.http.get(`${this.baseUrl}/test`, requestOptions );
+    //return this.http.get(`${this.baseUrl}/test`, requestOptions );
+    return this.http.get(`${this.baseUrl}/test`);
+  }
+  
+
+
+  rest(data) {
+
+   // console.dir("data.token " + data.token);
+    const headerDict = {
+      'Content-Type': 'application/json'
+    }
+    
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+      withCredentials: true
+    };
+    
+    return this.http.get(`${this.baseUrl}/rest`, requestOptions );
+
   }
 }
+
+
+
