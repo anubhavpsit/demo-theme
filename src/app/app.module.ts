@@ -36,6 +36,7 @@ import { TokenService } from './service/auth/token.service';
 import { AfterLoginService } from './service/after-login.service';
 import { BeforeLoginService } from './service/before-login.service';
 import { AuthGuard } from './auth.guard';
+import { MysocketService } from './service/mysockets/mysocket.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -70,11 +71,10 @@ export function createTranslateLoader(http: HttpClient) {
     LoadingBarRouterModule,
     NgbModule.forRoot(),
     SidebarModule.forRoot(),
-    //AgmCoreModule.forRoot({apiKey: 'YOURAPIKEY'}),
     SpinnerModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyD2cfJO3G7l9BwoZLI_jkakcZY7zpc8vrE'})
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyD2cfJO3G7l9BwoZLI_jkakcZY7zpc8vrE'}),
   ],
-  providers: [PagingService, JarwisService, AuthService, TokenService, AfterLoginService, BeforeLoginService, AuthGuard],
+  providers: [PagingService, JarwisService, AuthService, TokenService, AfterLoginService, BeforeLoginService, AuthGuard, MysocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

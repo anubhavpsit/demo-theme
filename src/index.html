@@ -70,5 +70,26 @@
         <img src="assets/images/oval.svg" class="loading-icon" />
     </div>
 </body>
+<!--
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+<script type="text/javascript">
 
+socket = io.connect('http://localhost:3001/');
+console.log('connecting user to socket server');
+socket.on('error', function() {
+  console.log('there was an error');
+});
+socket.on('connect', function() {
+  console.log('socket connection established');
+  connected = true;     
+});
+
+socket.emit('subscribe', 'ListStatusUpdated');
+socket.emit('subscribe', {
+  channel: 'ListStatusUpdated'
+}).on('test-event-4', function(channel, data) {
+  console.log(data);
+});
+</script>
+-->
 </html>
