@@ -5,7 +5,7 @@ import { TokenService } from '../auth/token.service';
 @Injectable()
 export class JarwisService {
 
-  private baseUrl = 'http://app.ally.com/api';
+  private baseUrl = 'http://app.vcapp.com/api';
   httpOptions: any;
 
   constructor(private http: HttpClient, private Token: TokenService) { 

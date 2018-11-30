@@ -5,8 +5,8 @@ export class TokenService {
 
 
   private iss = {
-    'login' : 'http://app.ally.com/api/login',
-    'register' : 'http://app.ally.com/api/register',
+    'login' : 'http://app.vcapp.com/api/login',
+    'register' : 'http://app.vcapp.com/api/register',
   }
   constructor() { }
 
